@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Verma from "./Verma";
+import Shukla from "./Shukla";
+import Button from "./Button";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [name, setName] = useState(1);
+  const clicked = () => {
+    setName(name + 2);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Shukla />
+      <Button color2="blue" click={clicked}>
+        {name}
+      </Button>
+      <button onClick={clicked}>{name}</button>
+    </>
   );
-}
-
+};
 export default App;
