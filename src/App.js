@@ -1,21 +1,23 @@
-import React, { useState } from "react";
-import Verma from "./Verma";
-import Shukla from "./Shukla";
-import Button from "./Button";
+import React from "react";
+import { Route, Switch } from "react-router";
 import "./App.css";
+import About from "./pages/About";
+import Home from "./pages/Home";
 
 const App = () => {
-  const [name, setName] = useState(1);
-  const clicked = () => {
-    setName(name + 2);
-  };
   return (
     <>
-      <Shukla />
-      <Button color2="blue" click={clicked}>
-        {name}
-      </Button>
-      <button onClick={clicked}>{name}</button>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/about">
+          <About />
+        </Route>
+        <Route>
+          <h1>404 Page</h1>
+        </Route>
+      </Switch>
     </>
   );
 };
