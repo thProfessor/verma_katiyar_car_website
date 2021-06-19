@@ -12,7 +12,7 @@ export const font = {
 };
 
 export const sizes = {
-  xlg: "78",
+  xlg: "68",
   lg: "32",
   md: "24",
   sm: "18",

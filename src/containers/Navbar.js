@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "../assets/images/logo.png";
 import { BsSearch } from "react-icons/bs";
@@ -13,7 +14,7 @@ function Navbar() {
       </ImageWrapper>
       <NavbarList>
         <NavbarItem>Sports</NavbarItem>
-        <NavbarItem>Blog</NavbarItem>
+        <NavbarItem to="/blog">Blog</NavbarItem>
         <NavbarItem>Accessories</NavbarItem>
       </NavbarList>
       <NavbarIcons>
@@ -49,13 +50,14 @@ const NavbarList = styled.ul`
   list-style: none;
   transform: translateX(10%);
 `;
-const NavbarItem = styled.li`
-  font-size: ${sizes.sm}px;
+const NavbarItem = styled(Link)`
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: 0;
   cursor: pointer;
   text-transform: uppercase;
   color: ${primary.fontColor};
+  text-decoration: none;
 `;
 
 const NavbarIcons = styled.div`

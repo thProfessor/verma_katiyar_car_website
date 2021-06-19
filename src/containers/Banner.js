@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { primary, sizes } from "../styles/pallete";
 import Car from "../assets/images/car.png";
 function Banner() {
@@ -7,11 +7,12 @@ function Banner() {
     <Wrapper>
       <ContentWrapper>
         <Typography>
-          Chevrolette <br /> Corvette C3
+          Chevrolette <br />
+          Corvette C3
         </Typography>
       </ContentWrapper>
       <Circle />
-      <img src={Car} alt="" style={{ transform: "translate(-10%,10%)" }} />
+      <img src={Car} alt="" style={{ transform: "translate(-20%,10%)" }} />
     </Wrapper>
   );
 }
@@ -30,15 +31,23 @@ const Typography = styled.h1`
   font-weight: 400;
   position: relative;
   display: inline-block;
+
+  ${(props) =>
+    props.h2 &&
+    css`
+      font-size: 12px;
+    `}
 `;
 const ContentWrapper = styled.div`
   display: flex;
   position: relative;
 `;
 const Circle = styled.div`
+  /* circle making */
   height: 750px;
   width: 750px;
   border-radius: 50%;
+  /* circle done */
   background: ${primary.inner};
   position: absolute;
   top: 0;
