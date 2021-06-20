@@ -15,7 +15,7 @@ function Navbar() {
       <NavbarList>
         <NavbarItem>Sports</NavbarItem>
         <NavbarItem to="/blog">Blog</NavbarItem>
-        <NavbarItem>Accessories</NavbarItem>
+        <NavbarItem to="/about">Accessories</NavbarItem>
       </NavbarList>
       <NavbarIcons>
         <Search />
