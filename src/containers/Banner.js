@@ -23,7 +23,7 @@ function Banner() {
         style={{
           position: "relative",
           display: "inline-block",
-          marginLeft: "20px",
+          marginLeft: "25px",
         }}
       >
         {display && <Card title="Classic C3 Car Tier" price="$20.00" />}
