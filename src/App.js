@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Navbar from "./containers/Navbar";
 import styled from "styled-components";
 import { primary } from "./styles/pallete";
+
 const App = () => {
   return (
     <>

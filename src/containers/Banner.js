@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { primary, sizes } from "../styles/pallete";
 import Car from "../assets/images/car.png";
+import { BsPlusCircleFill } from "react-icons/bs";
+import Card from "../components/Card";
 function Banner() {
+  const [display, setDisplay] = useState(false);
+  const displayCard = () => {
+    setDisplay(!display);
+  };
   return (
     <Wrapper>
       <ContentWrapper>
@@ -13,6 +19,16 @@ function Banner() {
       </ContentWrapper>
       <Circle />
       <img src={Car} alt="" style={{ transform: "translate(-20%,10%)" }} />
+      <div
+        style={{
+          position: "relative",
+          display: "inline-block",
+          marginLeft: "20px",
+        }}
+      >
+        {display && <Card title="Classic C3 Car Tier" price="$20.00" />}
+        <Button onClick={displayCard} />
+      </div>
     </Wrapper>
   );
 }
@@ -55,3 +71,14 @@ const Circle = styled.div`
   transform: translate(-50%);
   z-index: -1;
 `;
+
+const Button = styled(BsPlusCircleFill)`
+  font-size: 2rem;
+  position: absolute;
+  bottom: 60%;
+  transform: translate(50%, -50%);
+  right: 0;
+  cursor: pointer;
+`;
+
+// button 2 --> minus icon
