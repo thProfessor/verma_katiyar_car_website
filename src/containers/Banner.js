@@ -4,21 +4,43 @@ import { primary, sizes } from "../styles/pallete";
 import Car from "../assets/images/car.png";
 import { BsPlusCircleFill } from "react-icons/bs";
 import Card from "../components/Card";
+import { mobile } from "../styles/mediaQuerries";
+import { motion } from "framer-motion";
 function Banner() {
   const [display, setDisplay] = useState(false);
   const displayCard = () => {
     setDisplay(!display);
   };
   return (
-    <Wrapper>
+    <Wrapper
+      transition={{
+        delayChildren: 5,
+        staggerDirection: -1,
+      }}
+    >
       <ContentWrapper>
-        <Typography>
+        <Typography
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+        >
           Chevrolette <br />
           Corvette C3
         </Typography>
       </ContentWrapper>
-      <Circle />
-      <img src={Car} alt="" style={{ transform: "translate(-20%,10%)" }} />
+      <Circle
+        initial={{ opacity: 0, x: -100, y: 100 }}
+        animate={{ opacity: 1, x: -350, y: -50 }}
+        transition={{ duration: 1 }}
+      />
+      <motion.img
+        src={Car}
+        alt=""
+        style={{ transform: "translate(-20%,10%)" }}
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: 1, x: -50, rotate: 360 }}
+        transition={{ duration: 1 }}
+      />
       <div
         style={{
           position: "relative",
@@ -35,30 +57,41 @@ function Banner() {
 
 export default Banner;
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   position: relative;
   padding: 2vw 5vw;
   display: flex;
+
+  ${mobile} {
+    img {
+      width: 20%;
+      height: auto;
+    }
+  }
 `;
 
-const Typography = styled.h1`
+const Typography = styled(motion.h1)`
   color: ${primary.fontColor};
   font-size: ${sizes.xlg}px;
   font-weight: 400;
   position: relative;
   display: inline-block;
 
+  ${mobile} {
+    color: ${primary.inner};
+    font-size: ${sizes.md}px;
+  }
   ${(props) =>
     props.h2 &&
     css`
       font-size: 12px;
     `}
 `;
-const ContentWrapper = styled.div`
+const ContentWrapper = styled(motion.div)`
   display: flex;
   position: relative;
 `;
-const Circle = styled.div`
+const Circle = styled(motion.div)`
   /* circle making */
   height: 750px;
   width: 750px;
@@ -82,3 +115,5 @@ const Button = styled(BsPlusCircleFill)`
 `;
 
 // button 2 --> minus icon
+
+// framer motion --> motion.   --> bahar se ara hai () me rahega eg (motion.div)

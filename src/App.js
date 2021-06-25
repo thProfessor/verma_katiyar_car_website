@@ -34,7 +34,7 @@ export default App;
 
 const Background = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background: ${primary.background};
   position: absolute;
   z-index: -10;
